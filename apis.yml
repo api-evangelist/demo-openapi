@@ -2,7 +2,7 @@ aid: apis-io
 url: https://github.com/api-evangelist/search-api/blob/main/apis.yml
 apis:
   - aid: apis-io:search-api
-    name: APIs.io Search API
+    name: APIs.io Search
     tags:
       - APIs
       - Search Engine
@@ -52,7 +52,7 @@ apis:
     description: >-
       This is the API to access APIs.io API search engine, from the product
       management perspective.
-name: APIs.io Search API
+name: APIs.io Search
 tags:
   - APIs
   - Search Engine
