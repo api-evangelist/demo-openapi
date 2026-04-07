@@ -4,9 +4,8 @@ apis:
   - aid: apis-io:search-api
     name: APIs.io Search
     tags:
-      - APIs
-      - Search Engine
       - Directory
+      - Search Engine
     image: https://kinlane-productions2.s3.amazonaws.com/apis-io/apis-io-api-logo.jpg
     baseURL: https://search-api.apis.io
     contact:
@@ -54,9 +53,8 @@ apis:
       management perspective.
 name: APIs.io Search
 tags:
-  - APIs
-  - Search Engine
   - Directory
+  - Search Engine
 type: Contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-io/apis-io-api-logo.jpg
 common:
