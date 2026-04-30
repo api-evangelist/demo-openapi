@@ -1,0 +1,21 @@
+name: Demo OpenAPI Vocabulary
+description: >-
+  Shared vocabulary of terms used in the demo-openapi reference
+  repository for managing an API contract on GitHub.
+terms:
+  - term: APIs.json
+    definition: A discovery format for describing APIs and their associated artifacts in a machine-readable way.
+  - term: OpenAPI
+    definition: A specification for describing the technical contract of HTTP APIs (paths, operations, schemas, security).
+  - term: APIs.io
+    definition: A public search engine and index of APIs described by APIs.json documents.
+  - term: Index
+    definition: An APIs.json document that catalogs one or more APIs and their supporting artifacts.
+  - term: Contract
+    definition: An APIs.json document scoped to a single API, paired with its OpenAPI and supporting artifacts.
+  - term: Capabilities
+    definition: A YAML manifest describing the operations and use cases an API exposes.
+  - term: Rules
+    definition: A Spectral ruleset codifying API design and governance expectations.
+  - term: Vocabulary
+    definition: A shared list of terms and definitions used across an API portfolio.

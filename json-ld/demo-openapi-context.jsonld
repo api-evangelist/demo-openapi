@@ -1,0 +1,17 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://apis.io/vocab/",
+    "schema": "https://schema.org/",
+    "apisio": "https://apis.io/vocab/",
+    "API": "schema:WebAPI",
+    "Search": "schema:SearchAction",
+    "id": {"@id": "schema:identifier"},
+    "name": {"@id": "schema:name", "@type": "schema:Text"},
+    "description": {"@id": "schema:description", "@type": "schema:Text"},
+    "url": {"@id": "schema:url", "@type": "schema:URL"},
+    "humanURL": {"@id": "apisio:humanURL", "@type": "schema:URL"},
+    "baseURL": {"@id": "apisio:baseURL", "@type": "schema:URL"},
+    "tags": {"@id": "schema:keywords", "@type": "schema:Text"}
+  }
+}

@@ -1,0 +1,22 @@
+name: APIs.io Search API Capabilities
+description: >-
+  Capabilities exposed by the APIs.io Search API used in the demo-openapi
+  reference repository.
+capabilities:
+  - name: Search APIs
+    description: Search across the APIs.io index by keyword or phrase.
+    operationId: searchAPIs
+    method: GET
+    path: /search/apis
+  - name: Submit API
+    description: Submit a valid APIs.json document to be included in the APIs.io index.
+    operationId: addAPI
+    method: POST
+    path: /search/apis
+use_cases:
+  - name: API discovery
+    description: Power third-party API discovery experiences using search of APIs.io.
+  - name: Index contribution
+    description: Allow producers to submit their own APIs.json document to enrich the public index.
+  - name: Demo of GitHub API management
+    description: Provide a reference for how an APIs.json index, OpenAPI contract, and supporting artifacts can be managed in a single GitHub repository.

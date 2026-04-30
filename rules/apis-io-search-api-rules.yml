@@ -1,0 +1,40 @@
+extends:
+  - spectral:oas
+rules:
+  apis-io-info-contact:
+    description: API info should include a contact for APIs.io.
+    given: $.info
+    severity: warn
+    then:
+      field: contact
+      function: truthy
+  apis-io-base-url:
+    description: Servers should reference search-api.apis.io.
+    given: $.servers[*].url
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "search-api\\.apis\\.io"
+  apis-io-external-docs:
+    description: OpenAPI should declare externalDocs.
+    given: $
+    severity: error
+    then:
+      field: externalDocs
+      function: truthy
+  apis-io-search-resource:
+    description: API should expose /search/apis as primary search resource.
+    given: $.paths
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: "/search/apis"
+  apis-io-operation-tags:
+    description: Operations should be tagged Search and APIs.
+    given: $.paths[*][*]
+    severity: warn
+    then:
+      field: tags
+      function: truthy
