@@ -16,7 +16,6 @@ tags:
 created: '2024-10-31'
 modified: '2026-04-28'
 specificationVersion: '0.19'
-kind: company
 description: >-
   This is a demo repository showing how GitHub can be used to manage an
   API contract using an APIs.json index plus an OpenAPI definition and
