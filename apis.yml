@@ -54,6 +54,8 @@ apis:
       - type: UseCases
         url: common/use-cases.yml
 common:
+  - type: DomainSecurity
+    url: security/demo-openapi-domain-security.yml
   - type: BlogPost
     url: https://github.com/api-evangelist/demo-openapi
   - type: CanonicalRepo
