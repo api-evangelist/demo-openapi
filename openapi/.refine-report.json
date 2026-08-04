@@ -1,0 +1,17 @@
+{
+  "provider": "demo-openapi",
+  "sources": [
+    "openapi.yml"
+  ],
+  "outputs": [
+    "demo-openapi-apis-api-openapi.yml",
+    "demo-openapi-search-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
