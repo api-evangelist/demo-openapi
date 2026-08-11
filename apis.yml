@@ -52,8 +52,6 @@ apis:
     url: openapi/openapi-review.yml
   - type: Rules
     url: rules/apis-io-search-api-rules.yml
-  - type: Capabilities
-    url: capabilities/apis-io-search-api-capabilities.yml
   - type: Teams
     url: common/team.yml
   - type: UseCases
@@ -74,8 +72,6 @@ apis:
     url: openapi/openapi-review.yml
   - type: Rules
     url: rules/apis-io-search-api-rules.yml
-  - type: Capabilities
-    url: capabilities/apis-io-search-api-capabilities.yml
   - type: Teams
     url: common/team.yml
   - type: UseCases
