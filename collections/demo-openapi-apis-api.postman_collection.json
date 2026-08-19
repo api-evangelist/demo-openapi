@@ -1,0 +1,430 @@
+{
+  "item": [
+    {
+      "id": "b799c20d-e57f-48da-8dbb-a24da0a7d938",
+      "name": "APIs",
+      "description": {
+        "content": "Index of HTTP application programming interfaces.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9cfe3273-3672-43f2-a447-c465f5b8b3bc",
+          "name": "Search APIs",
+          "request": {
+            "name": "Search APIs",
+            "description": {
+              "content": "Searching across all APIs by keyword or phrase.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "apis"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "The keyword to search by."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>",
+                  "description": "The limit of the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "The page of the results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "35bbc1f9-fba0-488a-b9fb-2e6c7700ded7",
+              "name": "A successful search.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "apis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"search\": \"AI\",\n    \"limit\": 50,\n    \"page\": 0,\n    \"totalPages\": 20\n  },\n  \"data\": [\n    {\n      \"name\": \"AssemblyAI API\",\n      \"description\": \"Built by AI experts, AssemblyAI’s Speech AI models include accurate speech-to-text for voice data (such as calls, virtual meetings, and podcasts), speaker detection, sentiment analysis, chapter detection, PII redaction, and more.\",\n      \"searchUrl\": \"https://ai.apis.io/apis/assemblyai/apis/\",\n      \"apiUrl\": \"https://www.assemblyai.com/docs/\",\n      \"indexUrl\": \"https://raw.githubusercontent.com/api-search/artificial-intelligence/main/_apis_/assemblyai/apis.md\",\n      \"score\": 546,\n      \"tags\": [\n        \"Artificial Intelligence\",\n        \"AI\"\n      ]\n    }\n  ],\n  \"links\": {\n    \"self\": \"/search/apis/?search=&page=0&limit=50\",\n    \"next\": \"/search/apis/?search=&page=01&limit=50\",\n    \"last\": \"/search/apis/?search=&page=20&limit=50\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "171daa6f-f099-47da-bfe2-e69bb70e2ad3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "apis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"https://example.com/errors/bad-request\",\n  \"title\": \"Bad Request\",\n  \"status\": 400,\n  \"detail\": \"The request is invalid or missing required parameters.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6885791f-6334-4d53-86b2-11822affb070",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "apis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"https://example.com/errors/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"You do not have the necessary permissions.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a620e8c6-f140-422e-bb53-cc498c521f35",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "apis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"https://example.com/errors/forbidden\",\n  \"title\": \"Forbidden\",\n  \"status\": 403,\n  \"detail\": \"Access is forbidden with the provided credentials.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8e54187-807e-4cd6-8a1c-d34511fb256a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "apis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"https://example.com/errors/not-found\",\n  \"title\": \"Not Found\",\n  \"status\": 404,\n  \"detail\": \"The requested resource was not found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9abfc8a-9e9b-45f0-9607-2001c5722dfe",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "apis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"https://example.com/errors/too-many-requests\",\n  \"title\": \"Too Many Requests\",\n  \"status\": 429,\n  \"detail\": \"You have exceeded the rate limit.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14277085-a094-487f-b672-4f095bef6b8f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "apis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"type\": \"https://example.com/errors/internal-server-error\",\n  \"title\": \"Internal Server Error\",\n  \"status\": 500,\n  \"detail\": \"An unexpected error occurred.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://search-api.apis.io/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4fdb71bc-2838-4174-81ae-bf4843af1754",
+    "name": "Technical Contract for the .io Search APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the technical API contract for the search API for the APIs.io search engine.\n\nContact Support:\n Name: Kin Lane\n Email: info@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}
