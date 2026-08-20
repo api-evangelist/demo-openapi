@@ -41,7 +41,8 @@ apis:
   description: Index of HTTP application programming interfaces.
   humanURL: https://developer.apis.io/documentation/
   baseURL: https://search-api.apis.io/
-  tags:
+  tags: []
+  tags_raw:
   - APIs
   properties:
   - type: OpenAPI
