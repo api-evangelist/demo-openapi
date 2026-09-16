@@ -47,27 +47,6 @@ description: >-
   index. The repository is referenced by an API Evangelist blog post on
   managing OpenAPI in GitHub.
 apis:
-- aid: demo-openapi:demo-openapi-apis-api
-  name: Manage OpenAPI via GitHub Demo APIs API
-  description: Index of HTTP application programming interfaces.
-  humanURL: https://developer.apis.io/documentation/
-  baseURL: https://search-api.apis.io/
-  tags: []
-  tags_raw:
-  - APIs
-  properties:
-  - type: OpenAPI
-    url: openapi/demo-openapi-apis-api-openapi.yml
-  - type: Documentation
-    url: https://developer.apis.io/documentation/
-  - type: OpenAPIReview
-    url: openapi/openapi-review.yml
-  - type: Rules
-    url: rules/apis-io-search-api-rules.yml
-  - type: Teams
-    url: common/team.yml
-  - type: UseCases
-    url: common/use-cases.yml
 - aid: demo-openapi:demo-openapi-search-api
   name: Manage OpenAPI via GitHub Demo Search API
   description: Search using a cloud search engine.
