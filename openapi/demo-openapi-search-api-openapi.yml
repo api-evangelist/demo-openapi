@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Technical Contract for the APIs.io Search API
   description: This is the technical API contract for the search API for the APIs.io search engine.
@@ -84,6 +84,12 @@ paths:
           $ref: '#/components/responses/InternalServerError'
 components:
   examples:
+    AddAPIResponse:
+      summary: A successful add API response.
+      value:
+        response: The API has been added to the APIs.io index.
+        url: https://github.com/apis-json/artisanal/tree/main/_apis/example-api/apis.md?plain=1
+        issue: https://github.com/apis-json/artisanal/issues/undefined
     AddAPIRequest:
       summary: An example of adding an API.
       value:
@@ -149,40 +155,147 @@ components:
           self: /search/apis/?search=&page=0&limit=50
           next: /search/apis/?search=&page=01&limit=50
           last: /search/apis/?search=&page=20&limit=50
-    AddAPIResponse:
-      summary: A successful add API response.
-      value:
-        response: The API has been added to the APIs.io index.
-        url: https://github.com/apis-json/artisanal/tree/main/_apis/example-api/apis.md?plain=1
-        issue: https://github.com/apis-json/artisanal/issues/undefined
   schemas:
-    metaInformation:
-      description: Metadata about the API
-      required:
-      - key
-      - value
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-    Meta:
+    Search:
       type: object
+      description: An JSON API object with metadata, data, and links.
       properties:
-        search:
-          type: string
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          $ref: '#/components/schemas/APIs'
+        links:
+          $ref: '#/components/schemas/Link'
+      required:
+      - meta
+      - data
+      - links
+    Property:
+      description: A representation of a URL
+      required:
+      - type
+      - url
+      properties:
         type:
           type: string
-        limit:
-          type: integer
-        page:
-          type: integer
-        totalPages:
-          type: integer
+          pattern: ^(Swagger)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(TermsOfService)$|^(InterfaceLicense)$|^(StatusPage)$|^(Pricing)$|^(Forums)$|^(AlertsTwitterHandle)$|^(X-[A-Za-z0-9\-]*)$
+          enum:
+          - Swagger
+          - RAML
+          - Blueprint
+          - WADL
+          - WSDL
+          - TersmOfService
+          - InterfaceLicense
+          - StatusPage
+          - Pricing
+          - Forums
+        url:
+          type: string
+          pattern: ^(http)|(https)://(.*)$
+    API:
+      description: The description of the API
       required:
-      - totalPages
-      - page
-      - limit
+      - name
+      - description
+      - image
+      - baseURL
+      - humanURL
+      - properties
+      - contact
+      properties:
+        name:
+          type: string
+          description: name
+          minLength: 5
+        description:
+          type: string
+          description: description of the API
+          minLength: 5
+        image:
+          type: string
+          description: URL of an image representing the API
+        baseURL:
+          type: string
+          pattern: ^(http)|(https)://(.*)$
+          description: baseURL
+        humanURL:
+          type: string
+          pattern: ^(http)|(https)://(.*)$
+          description: humanURL
+        tags:
+          type: array
+          items:
+            type: string
+            minLength: 1
+          description: tags to describe the API
+        properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+          description: URLs
+        contact:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+          description: Contact to reach if questions about API
+        meta:
+          type: array
+          items:
+            $ref: '#/components/schemas/metaInformation'
+    Maintainer:
+      description: The person or organization responsible for maintaining the API.
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: name
+          minLength: 5
+      additionalProperties:
+        type: string
+    APIs:
+      type: array
+      description: Listing of APIs in the APIs.json format.
+      items:
+        $ref: '#/components/schemas/API'
+    Include:
+      description: Include other APIs.json file
+      required:
+      - name
+      - url
+      properties:
+        name:
+          type: string
+          minLength: 1
+        url:
+          type: string
+          pattern: ^(http)|(https)://(.*)$
+    Problem:
+      xml:
+        name: problem
+        namespace: urn:ietf:rfc:7807
+      properties:
+        type:
+          type: string
+          description: A URI reference that identifies the problem type
+          example: https://example.com/probs/out-of-credit
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type
+          example: You do not have enough credit.
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem
+          example: Your current balance is 30, but that costs 50.
+        instance:
+          type: string
+          description: A URI reference that identifies the specific occurrence of the problem
+          example: /account/12345/msgs/abc
+        status:
+          type: integer
+          description: The HTTP status code
+          example: 400
     Contact:
       description: Information on contacting the API support
       required:
@@ -213,38 +326,35 @@ components:
         url:
           type: string
           pattern: ^(http)|(https)://(.*)$
-    APIs:
-      type: array
-      description: Listing of APIs in the APIs.json format.
-      items:
-        $ref: '#/components/schemas/API'
-    Include:
-      description: Include other APIs.json file
-      required:
-      - name
-      - url
-      properties:
-        name:
-          type: string
-          minLength: 1
-        url:
-          type: string
-          pattern: ^(http)|(https)://(.*)$
-    Link:
+    Meta:
       type: object
       properties:
-        self:
+        search:
           type: string
-        first:
+        type:
           type: string
-        prev:
-          type: string
-        next:
-          type: string
-        last:
-          type: string
+        limit:
+          type: integer
+        page:
+          type: integer
+        totalPages:
+          type: integer
       required:
-      - self
+      - totalPages
+      - page
+      - limit
+    Tag:
+      description: A consistent set of tag to apply to a description
+    metaInformation:
+      description: Metadata about the API
+      required:
+      - key
+      - value
+      properties:
+        key:
+          type: string
+        value:
+          type: string
     APIsJSON:
       type: object
       required:
@@ -304,131 +414,21 @@ components:
           items:
             $ref: '#/components/schemas/Include'
           description: Links to other apis.json definitions included in this service.
-    Property:
-      description: A representation of a URL
-      required:
-      - type
-      - url
-      properties:
-        type:
-          type: string
-          pattern: ^(Swagger)$|^(RAML)$|^(Blueprint)$|^(WADL)$|^(WSDL)$|^(TermsOfService)$|^(InterfaceLicense)$|^(StatusPage)$|^(Pricing)$|^(Forums)$|^(AlertsTwitterHandle)$|^(X-[A-Za-z0-9\-]*)$
-          enum:
-          - Swagger
-          - RAML
-          - Blueprint
-          - WADL
-          - WSDL
-          - TersmOfService
-          - InterfaceLicense
-          - StatusPage
-          - Pricing
-          - Forums
-        url:
-          type: string
-          pattern: ^(http)|(https)://(.*)$
-    Maintainer:
-      description: The person or organization responsible for maintaining the API.
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: name
-          minLength: 5
-      additionalProperties:
-        type: string
-    API:
-      description: The description of the API
-      required:
-      - name
-      - description
-      - image
-      - baseURL
-      - humanURL
-      - properties
-      - contact
-      properties:
-        name:
-          type: string
-          description: name
-          minLength: 5
-        description:
-          type: string
-          description: description of the API
-          minLength: 5
-        image:
-          type: string
-          description: URL of an image representing the API
-        baseURL:
-          type: string
-          pattern: ^(http)|(https)://(.*)$
-          description: baseURL
-        humanURL:
-          type: string
-          pattern: ^(http)|(https)://(.*)$
-          description: humanURL
-        tags:
-          type: array
-          items:
-            type: string
-            minLength: 1
-          description: tags to describe the API
-        properties:
-          type: array
-          items:
-            $ref: '#/components/schemas/Property'
-          description: URLs
-        contact:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contact'
-          description: Contact to reach if questions about API
-        meta:
-          type: array
-          items:
-            $ref: '#/components/schemas/metaInformation'
-    Problem:
-      xml:
-        name: problem
-        namespace: urn:ietf:rfc:7807
-      properties:
-        type:
-          type: string
-          description: A URI reference that identifies the problem type
-          example: https://example.com/probs/out-of-credit
-        title:
-          type: string
-          description: A short, human-readable summary of the problem type
-          example: You do not have enough credit.
-        detail:
-          type: string
-          description: A human-readable explanation specific to this occurrence of the problem
-          example: Your current balance is 30, but that costs 50.
-        instance:
-          type: string
-          description: A URI reference that identifies the specific occurrence of the problem
-          example: /account/12345/msgs/abc
-        status:
-          type: integer
-          description: The HTTP status code
-          example: 400
-    Search:
+    Link:
       type: object
-      description: An JSON API object with metadata, data, and links.
       properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          $ref: '#/components/schemas/APIs'
-        links:
-          $ref: '#/components/schemas/Link'
+        self:
+          type: string
+        first:
+          type: string
+        prev:
+          type: string
+        next:
+          type: string
+        last:
+          type: string
       required:
-      - meta
-      - data
-      - links
-    Tag:
-      description: A consistent set of tag to apply to a description
+      - self
   responses:
     InternalServerError:
       description: Internal Server Error
@@ -441,39 +441,6 @@ components:
             title: Internal Server Error
             status: 500
             detail: An unexpected error occurred.
-    BadRequest:
-      description: Bad Request
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
-          example:
-            type: https://example.com/errors/bad-request
-            title: Bad Request
-            status: 400
-            detail: The request is invalid or missing required parameters.
-    TooManyRequests:
-      description: Too Many Requests
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
-          example:
-            type: https://example.com/errors/too-many-requests
-            title: Too Many Requests
-            status: 429
-            detail: You have exceeded the rate limit.
-    NotFound:
-      description: Not Found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
-          example:
-            type: https://example.com/errors/not-found
-            title: Not Found
-            status: 404
-            detail: The requested resource was not found.
     Forbidden:
       description: Forbidden
       content:
@@ -485,6 +452,28 @@ components:
             title: Forbidden
             status: 403
             detail: Access is forbidden with the provided credentials.
+    BadRequest:
+      description: Bad Request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+          example:
+            type: https://example.com/errors/bad-request
+            title: Bad Request
+            status: 400
+            detail: The request is invalid or missing required parameters.
+    NotFound:
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+          example:
+            type: https://example.com/errors/not-found
+            title: Not Found
+            status: 404
+            detail: The requested resource was not found.
     Unauthorized:
       description: Unauthorized
       content:
@@ -496,17 +485,28 @@ components:
             title: Unauthorized
             status: 401
             detail: You do not have the necessary permissions.
+    TooManyRequests:
+      description: Too Many Requests
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+          example:
+            type: https://example.com/errors/too-many-requests
+            title: Too Many Requests
+            status: 429
+            detail: You have exceeded the rate limit.
   parameters:
-    Page:
-      name: page
-      description: The page of the results.
+    Search:
+      name: search
+      description: The keyword to search by.
       in: query
       required: false
       schema:
         type: string
-    Search:
-      name: search
-      description: The keyword to search by.
+    Page:
+      name: page
+      description: The page of the results.
       in: query
       required: false
       schema:
