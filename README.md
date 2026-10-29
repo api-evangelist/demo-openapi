@@ -1,4 +1,4 @@
-# Manage OpenAPI via GitHub Demo (demo-openapi)
+# Manage OpenAPI via GitHub Demo
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,64 +66,83 @@
 
 This is a demo repository showing how GitHub can be used to manage an API contract using an APIs.json index plus an OpenAPI definition and supporting artifacts. The API used in the demo is the APIs.io Search API, which exposes search and submission endpoints over the APIs.io index. The repository is referenced by an API Evangelist blog post on managing OpenAPI in GitHub.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/demo-openapi/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/demo-openapi/refs/heads/main/apis.yml)
+**Areas:** APIs.json · Demo · GitHub · OpenAPI · Reference · Search
 
-## Scope
+## Manage OpenAPI via GitHub Demo on APIs.io
 
-- **Position:** Producer
-- **Access:** 1st-Party
+Everything profiled for Manage OpenAPI via GitHub Demo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/demo-openapi/](https://apis.io/providers/demo-openapi/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (1)
 
-- APIs.json
-- Demo
-- GitHub
-- OpenAPI
-- Reference
-- Search
+- [Manage OpenAPI via GitHub Demo Search API](https://apis.io/apis/demo-openapi/demo-openapi-search-api/) — Search using a cloud search engine.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-10-31
-- **Modified:** 2026-04-28
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### JSON-LD (1)
 
-### APIs.io Search API
+Linked-data contexts for the provider's vocabulary.
 
-Demo OpenAPI for the APIs.io Search API, exposing keyword search of APIs in the APIs.io index plus a submit endpoint that accepts a valid APIs.json document for inclusion. Used here purely as a demonstration subject for the GitHub-based API management workflow.
+- [Demo Openapi Context](https://apis.io/jsonld/demo-openapi/demo-openapi-context/)
 
-- **Human URL:** [https://developer.apis.io/documentation/](https://developer.apis.io/documentation/)
-- **Base URL:** `https://search-api.apis.io/`
+#### Vocabulary (1)
 
-#### Tags
+The provider's domain terms, defined.
 
-- APIs.io
-- Demo
-- Search
-- Submit
+- [Demo OpenAPI Vocabulary](https://apis.io/vocabularies/demo-openapi/demo-openapi-vocabulary/)
 
-#### Properties
+#### Collections (2)
 
-- [Documentation](https://developer.apis.io/documentation/)
-- [OpenAPI](openapi/openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Open A P I Review](openapi/openapi-review.yml)
-- [Rules](rules/apis-io-search-api-rules.yml)
-- [Capabilities](capabilities/apis-io-search-api-capabilities.yml)
-- [Teams](common/team.yml)
-- [Use Cases](common/use-cases.yml)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [Technical Contract for the .io Search APIs API](https://apis.io/collections/demo-openapi/open-demo-openapi-apis-api/)
+- [Technical Contract for the APIs.io Search API](https://apis.io/collections/demo-openapi/open-demo-openapi-search-api/)
 
-- [Blog Post](https://github.com/api-evangelist/demo-openapi)
-- [Canonical Repo](https://github.com/api-evangelist/search-api)
-- [A P Is Io](https://apis.io)
-- [Developer](https://developer.apis.io)
-- [Support Email](mailto:kin@apievangelist.com)
-- [Vocabulary](vocabulary/demo-openapi-vocabulary.yml)
-- [JSON-LD](json-ld/demo-openapi-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+#### Governance rules (1)
 
-## Maintainers
+Spectral rulesets for the provider's contracts.
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+- [Manage OpenAPI via GitHub Demo — apis io search api rules](https://apis.io/rules/demo-openapi/apis-io-search-api-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Demo Openapi Domain Security](https://apis.io/security/demo-openapi/demo-openapi-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Demo Openapi Plans Pricing](https://apis.io/plans/demo-openapi/demo-openapi-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Demo Openapi Rate Limits](https://apis.io/rate-limits/demo-openapi/demo-openapi-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Demo Openapi Finops](https://apis.io/finops/demo-openapi/demo-openapi-finops/)
+
+## API Evangelist rating
+
+**Unrated** — no public website could be reached for this company, so there was almost nothing to measure and nothing a reader could check.
+
+This is not a score of zero. No rating is published for this company. If that is wrong because something public exists that we missed, say so on this repository or email [info@apievangelist.com](mailto:info@apievangelist.com) and it will be re-run — free, and no justification needed.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Manage OpenAPI via GitHub Demo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/demo-openapi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
